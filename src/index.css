@@ -1,0 +1,249 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Child-Friendly Indonesian Mammals Book Design System */
+
+@layer base {
+  :root {
+    /* Nature-inspired backgrounds */
+    --background: 120 100% 97%;
+    --foreground: 160 50% 15%;
+
+    /* Card styling with nature theme */
+    --card: 0 0% 100%;
+    --card-foreground: 160 50% 15%;
+
+    /* Popover styling */
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 50% 15%;
+
+    /* Jungle green primary */
+    --primary: 140 70% 45%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Sunset orange secondary */
+    --secondary: 25 95% 60%;
+    --secondary-foreground: 160 50% 15%;
+
+    /* Soft nature muted tones */
+    --muted: 120 30% 92%;
+    --muted-foreground: 160 30% 45%;
+
+    /* Sky blue accent */
+    --accent: 200 85% 55%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Warm warning colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Soft borders and inputs */
+    --border: 120 25% 85%;
+    --input: 120 25% 90%;
+    --ring: 140 70% 45%;
+
+    /* Fun rounded corners */
+    --radius: 1rem;
+
+    /* Custom nature gradients */
+    --gradient-jungle: linear-gradient(135deg, hsl(140, 70%, 45%), hsl(120, 65%, 35%));
+    --gradient-sunset: linear-gradient(135deg, hsl(25, 95%, 60%), hsl(15, 90%, 55%));
+    --gradient-sky: linear-gradient(135deg, hsl(200, 85%, 55%), hsl(220, 80%, 65%));
+    --gradient-nature: linear-gradient(135deg, hsl(120, 100%, 97%), hsl(140, 30%, 95%));
+
+    /* Animal card shadows */
+    --shadow-animal: 0 10px 30px -5px hsl(140, 70%, 45%, 0.2);
+    --shadow-hover: 0 20px 40px -10px hsl(140, 70%, 45%, 0.3);
+    
+    /* Playful animations */
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Animal Card Styles */
+  .animal-card {
+    @apply bg-card rounded-2xl border border-border shadow-lg hover:shadow-xl;
+    @apply transition-all duration-300 hover:scale-105 hover:-translate-y-1;
+    box-shadow: var(--shadow-animal);
+  }
+  
+  .animal-card:hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* Playful Buttons */
+  .btn-playful {
+    @apply rounded-full px-6 py-3 font-bold text-lg;
+    @apply transition-all duration-200;
+    @apply hover:scale-110 active:scale-95;
+    transition-timing-function: var(--transition-bounce);
+  }
+
+  /* Nature Gradients */
+  .bg-jungle {
+    background: var(--gradient-jungle);
+  }
+  
+  .bg-sunset {
+    background: var(--gradient-sunset);
+  }
+  
+  .bg-sky {
+    background: var(--gradient-sky);
+  }
+  
+  .bg-nature {
+    background: var(--gradient-nature);
+  }
+
+  /* Animated Elements */
+  .bounce-in {
+    animation: bounceIn 0.6s var(--transition-bounce);
+  }
+
+  .float-gentle {
+    animation: floatGentle 3s ease-in-out infinite;
+  }
+
+  /* Page Transitions */
+  .page-enter {
+    animation: fadeSlideUp 0.5s ease-out;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3) translateY(20px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Quiz feedback animations */
+@layer components {
+  .feedback-correct {
+    animation: correctPulse 600ms ease-out;
+  }
+  .feedback-incorrect {
+    animation: incorrectShake 450ms ease-in-out;
+  }
+}
+
+@keyframes correctPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16,185,129,0.0); }
+  50% { transform: scale(1.02); box-shadow: 0 0 0 8px rgba(16,185,129,0.15); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(16,185,129,0.0); }
+}
+
+@keyframes incorrectShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* Quiz overall-timeout fade out */
+@layer components {
+  .quiz-ending {
+    animation: quizFadeOut 500ms ease-out forwards;
+  }
+}
+
+@keyframes quizFadeOut {
+  0% { opacity: 1; filter: blur(0px); }
+  100% { opacity: 0; filter: blur(2px); }
+}
